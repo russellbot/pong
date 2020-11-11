@@ -11,7 +11,18 @@ const gameOverEl = document.createElement('div');
 
 // Render Everything on Canvas
 function renderCanvas() {
-    
+    // Canvas Background
+    context.fillStyle = 'black';
+    context.fillRect(0, 0, width, height);
+
+    // Paddle Color
+    context.fillStyle = 'white';
+
+    // Player Paddle (bottom)
+    context.fillRect(paddleBottomX, height -20, paddleWidth, paddleHeight);
+
+    // Computer Paddle (top)
+    context.fillRect(paddleTopX, 10, paddleWidth, paddleHeight);
 }
 
 // Create Canvas Element
@@ -21,3 +32,5 @@ function createCanvas() {
     body.appendChild(canvas);
     renderCanvas();
 }
+
+createCanvas();
