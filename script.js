@@ -77,13 +77,29 @@ function createCanvas() {
     renderCanvas();
 }
 
+// Reset Ball to Center
+function ballReset() {
+    ballX = width / 2;
+    ballY = height / 2;
+    speedY = -3;
+    paddleContact = false;
+}
+
+// Called Every Frame
+function animate() {
+    renderCanvas();
+    ballMove();
+    ballBoundaries();
+    computerAI();
+}
+
 // Start Game, Reset Everything
 function startGame() {
     playerScore = 0;
     computerScore = 0;
     // ballReset();
     createCanvas();
-    // animate();
+    animate();
     canvas.addEventListener('mousemove', (e) => {
         playerMoved = true;
         // Compensate for canvas being cenetered
