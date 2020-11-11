@@ -8,3 +8,16 @@ const screenWidth = window.screen.width;
 const canvasPosition = screenWidth / 2 - width / 2;
 const isMobile = window.matchMedia('(max-width: 600px)');
 const gameOverEl = document.createElement('div');
+
+// Render Everything on Canvas
+function renderCanvas() {
+    
+}
+
+// Create Canvas Element
+function createCanvas() {
+    canvas.width = width;
+    canvas.height = height;
+    body.appendChild(canvas);
+    renderCanvas();
+}
