@@ -164,7 +164,7 @@ function animate() {
     ballMove();
     ballBoundaries();
     computerAI();
-
+    window.requestAnimationFrame(animate);
 }
 
 // Start Game, Reset Everything
@@ -173,8 +173,7 @@ function startGame() {
     computerScore = 0;
     ballReset();
     createCanvas();
-    // animate();
-    setInterval(animate, 1000/60);
+    animate();
     canvas.addEventListener('mousemove', (e) => {
         playerMoved = true;
         // Compensate for canvas being cenetered
