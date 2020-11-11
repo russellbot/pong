@@ -77,4 +77,25 @@ function createCanvas() {
     renderCanvas();
 }
 
-createCanvas();
+// Start Game, Reset Everything
+function startGame() {
+    playerScore = 0;
+    computerScore = 0;
+    // ballReset();
+    createCanvas();
+    // animate();
+    canvas.addEventListener('mousemove', (e) => {
+        playerMoved = true;
+        // Compensate for canvas being cenetered
+        paddleBottomX = e.client - canvasPosition - paddleDiff;
+        if (paddleBottomX < paddleDiff) {
+            paddleBottomX = 0;
+        }
+        if (paddleBottomX > width - paddleWidth) {
+            paddleBottomX = width - paddleWidth;
+        }
+    }); 
+}
+
+// On Load
+startGame();
