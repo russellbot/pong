@@ -94,6 +94,8 @@ function startGame() {
         if (paddleBottomX > width - paddleWidth) {
             paddleBottomX = width - paddleWidth;
         }
+        // Hide Cursor
+        canvas.style.cursor = 'none';
     }); 
 }
 
