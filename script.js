@@ -51,6 +51,12 @@ function renderCanvas() {
     context.lineTo(500, 350);
     context.strokeStyle = 'grey';
     context.stroke();
+
+    // Ball
+    context.beginPath();
+    context.arc(ballX, ballY, ballRadius, 2 * Math.PI, false);
+    context.fillStyle = 'white';
+    context.fill();
 }
 
 // Create Canvas Element
