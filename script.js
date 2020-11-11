@@ -5,7 +5,7 @@ const context = canvas.getContext('2d');
 const width = 500;
 const height = 700;
 const screenWidth = window.screen.width;
-const canvasPosition = screenWidth / 2 - width / 2;
+const canvasPosition = (screenWidth / 2) - (width / 2);
 const isMobile = window.matchMedia('(max-width: 600px)');
 const gameOverEl = document.createElement('div');
 
@@ -28,6 +28,17 @@ let speedY;
 let speedX;
 let trajectoryX;
 let computerSpeed;
+
+// Change Mobile Settings
+if (isMobile.matches) {
+    speedY = -2;
+    speedX = speedY;
+    computerSpeed = 4;
+} else {
+    speedY = -1;
+    speedX = speedY;
+    computerSpeed = 3;
+}
 
 // Score
 let playerScore = 0;
@@ -177,7 +188,7 @@ function startGame() {
     canvas.addEventListener('mousemove', (e) => {
         playerMoved = true;
         // Compensate for canvas being cenetered
-        paddleBottomX = e.client - canvasPosition - paddleDiff;
+        paddleBottomX = e.clientX - canvasPosition - paddleDiff;
         if (paddleBottomX < paddleDiff) {
             paddleBottomX = 0;
         }
